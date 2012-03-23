@@ -133,7 +133,8 @@ public class HttpTransportSE extends Transport {
         }
 
         if (envelope.version == SoapSerializationEnvelope.VER12) {
-            connection.setRequestProperty("Content-Type", CONTENT_TYPE_SOAP_XML_CHARSET_UTF_8);
+            connection.setRequestProperty("Content-Type", 
+            CONTENT_TYPE_SOAP_XML_CHARSET_UTF_8 + ";action=\"" + soapAction + "\"");
         } else {
             connection.setRequestProperty("Content-Type", CONTENT_TYPE_XML_CHARSET_UTF_8);
         }
